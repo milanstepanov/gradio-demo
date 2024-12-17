@@ -1,1 +1,6 @@
-gradio
+# devops
+pylint==3.3.2
+black==24.10.0
+
+# 
+gradio==5.9.1
