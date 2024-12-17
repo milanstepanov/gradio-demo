@@ -2,9 +2,11 @@ install:
 	pip install --upgrade pip &&\
 	pip install -r requirements.txt
 
-lint:
+lint: format
 	pylint *.py
 
+test:
+	pytest -vv --cov
 
 format:
 	black *.py
@@ -14,4 +16,4 @@ run:
 	python hello.py
 
 
-all: install,lint, format
+all: install lint test

@@ -1,25 +1,12 @@
 """'Docstring for gradio-demo.hello"""
 
 import gradio as gr
-
-
-def greet(name: str, intensity: int):
-    """'Generate greeting.
-
-    :param name: Name to greet.
-    :type str:
-    :param intensity:
-    :type int:
-    :return: Hello greeting.
-    :rtype: str"""
-
-    return f"Hello, {name}" + "!" * int(intensity)
-
+from mylib.greet import greet
 
 demo = gr.Interface(
     fn=greet,
-    inputs=["text", "slider"],
-    outputs=["text"],
+    inputs=["text", gr.Slider(value=2, minimum=1, maximum=10, step=1)],
+    outputs=[gr.Textbox(label="greeting", lines=3)],
 )
 
 demo.launch()
